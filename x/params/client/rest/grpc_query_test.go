@@ -59,7 +59,7 @@ func (s *IntegrationTestSuite) TestQueryParamsGRPC() {
 				Param: proposal.ParamChange{
 					Subspace: "staking",
 					Key:      "MaxValidators",
-					Value:    "100",
+					Value:    "125",
 				},
 			},
 		},
@@ -73,7 +73,7 @@ func (s *IntegrationTestSuite) TestQueryParamsGRPC() {
 				Param: proposal.ParamChange{
 					Subspace: "staking",
 					Key:      "MaxValidators",
-					Value:    "100",
+					Value:    "125",
 				},
 			},
 		},
@@ -101,7 +101,7 @@ func (s *IntegrationTestSuite) TestQueryParamsGRPC() {
 				Param: proposal.ParamChange{
 					Subspace: "staking",
 					Key:      "MaxValidators",
-					Value:    "100",
+					Value:    "125",
 				},
 			},
 		},

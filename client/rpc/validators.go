@@ -62,7 +62,7 @@ func ValidatorCommand() *cobra.Command {
 	cmd.Flags().StringP(flags.FlagNode, "n", "tcp://localhost:26657", "Node to connect to")
 	cmd.Flags().String(flags.FlagKeyringBackend, flags.DefaultKeyringBackend, "Select keyring's backend (os|file|kwallet|pass|test)")
 	cmd.Flags().Int(flags.FlagPage, rest.DefaultPage, "Query a specific page of paginated results")
-	cmd.Flags().Int(flags.FlagLimit, 100, "Query number of results returned per page")
+	cmd.Flags().Int(flags.FlagLimit, 125, "Query number of results returned per page")
 
 	return cmd
 }
@@ -157,7 +157,7 @@ func GetValidators(ctx context.Context, clientCtx client.Context, height *int64,
 // Validator Set at a height REST handler
 func ValidatorSetRequestHandlerFn(clientCtx client.Context) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		_, page, limit, err := rest.ParseHTTPArgsWithLimit(r, 100)
+		_, page, limit, err := rest.ParseHTTPArgsWithLimit(r, 125)
 		if err != nil {
 			rest.WriteErrorResponse(w, http.StatusBadRequest, "failed to parse pagination parameters")
 			return
@@ -191,7 +191,7 @@ func ValidatorSetRequestHandlerFn(clientCtx client.Context) http.HandlerFunc {
 // Latest Validator Set REST handler
 func LatestValidatorSetRequestHandlerFn(clientCtx client.Context) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		_, page, limit, err := rest.ParseHTTPArgsWithLimit(r, 100)
+		_, page, limit, err := rest.ParseHTTPArgsWithLimit(r, 125)
 		if err != nil {
 			rest.WriteErrorResponse(w, http.StatusBadRequest, "failed to parse pagination parameters")
 			return
